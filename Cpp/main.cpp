@@ -2,8 +2,11 @@
 #include <string>
 
 #include <fstream>
+#include <Windows.h>
 
 #include "CSVUtil.h"
+#include "CMDUtil.h"
+#include "Statistic.h"
 
 using namespace std;
 
@@ -33,10 +36,28 @@ void FileFunc()
 	int x = 0;
 }
 
+void Calc_Statistic()
+{
+	vector<double> vec;
+	vec.push_back(2.3);
+	vec.push_back(1.7);
+	vec.push_back(1.4);
+	vec.push_back(0.7);
+	vec.push_back(1.9);
+
+	double dval = Math::Statistic<double>::Mean(vec);
+	double dvar = Math::Statistic<double>::Variance(vec);
+	double dstv = Math::Statistic<double>::StandartDeviation(vec);
+
+	int x = 0;
+}
 
 int main()
 {
-	FileFunc();
+	//FileFunc();
+	//string filepath = "python C:/Users/phaes/Documents/Haafor/Python/Haafor/ex_graph.py";
+	//CMDUtil::ExcuteCommand(filepath);
+	Calc_Statistic();
 
 	return 0;
 }

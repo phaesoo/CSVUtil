@@ -1,7 +1,8 @@
-#include "CSVUtil.h"
-
 #include <fstream>
 #include <assert.h>
+
+#include "FileFormatUtil.h"
+#include "CSVUtil.h"
 
 using std::vector;
 using std::string;
@@ -10,8 +11,8 @@ bool CSVUtil::ReadFile(const string& filepath, DataFrame& dataList)
 {
 	dataList.clear();
 
-	// Check file format 
-	if (!ValidateFileFormat(filepath))
+	// Check file format
+	if (!FileFormatUtil::ValidateFileFormat(filepath, FileFormatUtil::Format::csv))
 	{
 		return false;
 	}
@@ -56,8 +57,8 @@ bool CSVUtil::ReadFile(const string& filepath, DataFrame& dataList)
 
 bool CSVUtil::WriteFile(const std::string& filepath, const DataFrame& dataList)
 {
-	// Check file format 
-	if (!ValidateFileFormat(filepath))
+	// Check file format
+	if (!FileFormatUtil::ValidateFileFormat(filepath, FileFormatUtil::Format::csv))
 	{
 		return false;
 	}
@@ -77,7 +78,7 @@ bool CSVUtil::WriteFile(const std::string& filepath, const DataFrame& dataList)
 		for (int j = 0; j < datasize; ++j)
 		{
 			file << dataList[i][j];
-			
+
 			if (j != datasize - 1) // Add token
 			{
 				file << g_token;
@@ -88,16 +89,4 @@ bool CSVUtil::WriteFile(const std::string& filepath, const DataFrame& dataList)
 	}
 
 	return true;
-}
-
-bool CSVUtil::ValidateFileFormat(const std::string& filepath)
-{
-	// csv파일인지 검사
-	if (filepath.substr(filepath.find_last_of(".") + 1) == "csv")
-	{
-		return true;
-	}
-
-	assert(0);
-	return false;
 }

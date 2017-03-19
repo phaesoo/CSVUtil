@@ -8,17 +8,12 @@ class CSVUtil
 public:
 	typedef std::vector< std::vector<std::string> > DataFrame;
 
+public:
+	CSVUtil() = delete;
+
 	static bool ReadFile(const std::string& filepath, DataFrame& dataList);
 	static bool WriteFile(const std::string& filepath, const DataFrame& dataList);
 
-private:
-	static bool ValidateFileFormat(const std::string& filepath);
-
 public:
 	static const char g_token = ","[0];
-};
-
-
-class TextUtil
-{
 };
