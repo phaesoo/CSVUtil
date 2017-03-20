@@ -9,10 +9,11 @@
 #include "Statistic.h"
 
 using namespace std;
+using namespace util;
 
 void FileFunc()
 {
-	string infilepath = "C:/Users/phaes/Documents/Haafor/Python/Haafor/file.csv";
+	string infilepath = "C:/Users/phs0710/Documents/test/test.csv";
 	std::ifstream open(infilepath);
 
 	CSVUtil::DataFrame dataframe;
@@ -29,7 +30,7 @@ void FileFunc()
 		cout << std::endl;
 	}
 
-	string outfilepath = "C:/Users/phaes/Documents/Haafor/Python/Haafor/file_cpp.csv";
+	string outfilepath = "C:/Users/phs0710/Documents/test/test_out.csv";
 
 	CSVUtil::WriteFile(outfilepath, dataframe);
 
@@ -45,19 +46,19 @@ void Calc_Statistic()
 	vec.push_back(0.7);
 	vec.push_back(1.9);
 
-	double dval = Math::Statistic<double>::Mean(vec);
-	double dvar = Math::Statistic<double>::Variance(vec);
-	double dstv = Math::Statistic<double>::StandartDeviation(vec);
+	double dval = math::Statistic<double>::Mean(vec);
+	double dvar = math::Statistic<double>::Variance(vec);
+	double dstv = math::Statistic<double>::StandartDeviation(vec);
 
 	int x = 0;
 }
 
 int main()
 {
-	//FileFunc();
-	//string filepath = "python C:/Users/phaes/Documents/Haafor/Python/Haafor/ex_graph.py";
-	//CMDUtil::ExcuteCommand(filepath);
+	FileFunc();
+	string filepath = "python C:/Users/phaes/Documents/Haafor/Python/Haafor/ex_graph.py";
+	CMDUtil::ExcuteCommand(filepath);
 	Calc_Statistic();
-
+    
 	return 0;
 }

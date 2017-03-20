@@ -4,7 +4,7 @@
 #include <numeric>
 #include <cmath>
 
-namespace Math
+namespace math
 {
 	template<typename T>
 	class Statistic
@@ -20,11 +20,11 @@ namespace Math
 	template<typename T>
 	double Statistic<T>::Mean(const std::vector<T>& vals)
 	{
-		int size = vals.size();
+		size_t size = vals.size();
 		if (size < 1) { return 0.0; }
 
 		double sum = 0.0;
-		for (int i = 0; i < size; ++i)
+		for (size_t i = 0; i < size; ++i)
 		{
 			sum += vals[i];
 		}
@@ -35,13 +35,13 @@ namespace Math
 	template<typename T>
 	double Statistic<T>::Variance(const std::vector<T>& vals, bool isPopulation=false)
 	{
-		int size = vals.size();
+        size_t size = vals.size();
 		if (size < 2) { return 0.0; } // 데이터 1개이하의 분산 의미 없음
 
 		double mean = Mean(vals);
 
 		double sum = 0.0;
-		for (int i = 0; i < size; ++i)
+		for (size_t i = 0; i < size; ++i)
 		{
 			sum += std::pow(vals[i] - mean, 2.0);
 		}

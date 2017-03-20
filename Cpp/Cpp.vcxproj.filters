@@ -27,6 +27,9 @@
     <ClCompile Include="FileFormatUtil.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="TextUtil.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -42,6 +45,9 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Statistic.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TextUtil.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

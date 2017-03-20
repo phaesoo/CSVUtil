@@ -23,6 +23,7 @@
     <ClCompile Include="FileFormatUtil.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CSVUtil.cpp" />
+    <ClCompile Include="TextUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMDUtil.h" />
@@ -30,6 +31,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="CSVUtil.h" />
     <ClInclude Include="Statistic.h" />
+    <ClInclude Include="TextUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Cpp.rc" />

@@ -2,8 +2,10 @@
 #include <assert.h>
 
 #include "FileFormatUtil.h"
+#include "TextUtil.h"
 #include "CSVUtil.h"
 
+using namespace util;
 using std::vector;
 using std::string;
 
@@ -28,28 +30,7 @@ bool CSVUtil::ReadFile(const string& filepath, DataFrame& dataList)
 	string textline;
 	while (std::getline(file, textline))
 	{
-		vector<string> row;
-		string cell;
-		int size = textline.size();
-		for (int i = 0; i < size; ++i)
-		{
-			if (textline[i] == g_token) // Token일 경우(,)
-			{
-				row.push_back(cell);
-				cell.clear();
-			}
-			else
-			{
-				cell.push_back(textline[i]);
-
-				if (i == size - 1) // Last loop
-				{
-					row.push_back(cell);
-				}
-			}
-		}
-
-		dataList.push_back(row);
+        dataList.push_back(TextUtil::SeperateString(textline, g_token));
 	}
 
 	return true;
@@ -71,11 +52,11 @@ bool CSVUtil::WriteFile(const std::string& filepath, const DataFrame& dataList)
 	}
 
 	// loop를 돌며 파일에 쓰기
-	int listsize = dataList.size();
-	for (int i = 0; i < listsize; ++i)
+    size_t listsize = dataList.size();
+	for (size_t i = 0; i < listsize; ++i)
 	{
-		int datasize = dataList[i].size();
-		for (int j = 0; j < datasize; ++j)
+        size_t datasize = dataList[i].size();
+		for (size_t j = 0; j < datasize; ++j)
 		{
 			file << dataList[i][j];
 

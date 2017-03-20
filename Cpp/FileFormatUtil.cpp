@@ -2,6 +2,7 @@
 
 #include <assert.h>
 
+using namespace util;
 using std::string;
 
 bool FileFormatUtil::ValidateFileFormat(const std::string& filepath, Format format)
@@ -31,9 +32,9 @@ bool FileFormatUtil::GetExtension(Format format, string& ext)
 	{
 	case csv: ext = "csv"; break;
 	default:
+        assert(0);
 		return false;
 	}
 
-	assert(0);
 	return true;
 }

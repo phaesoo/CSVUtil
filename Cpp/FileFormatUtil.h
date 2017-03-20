@@ -2,20 +2,23 @@
 
 #include <string>
 
-class FileFormatUtil
+namespace util
 {
-public:
-	enum Format : int
-	{
-		None = -1,
-		csv,
-	};
+    class FileFormatUtil
+    {
+    public:
+        enum Format : int
+        {
+            None = -1,
+            csv,
+        };
 
-public:
-	FileFormatUtil() = delete;
+    public:
+        FileFormatUtil() = delete;
 
-	static bool ValidateFileFormat(const std::string& filepath, Format format);
+        static bool ValidateFileFormat(const std::string& filepath, Format format);
 
-private:
-	static bool GetExtension(Format format, std::string& ext);
-};
+    private:
+        static bool GetExtension(Format format, std::string& ext);
+    };
+}

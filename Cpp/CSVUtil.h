@@ -3,17 +3,20 @@
 #include <string>
 #include <vector>
 
-class CSVUtil
+namespace util
 {
-public:
-	typedef std::vector< std::vector<std::string> > DataFrame;
+    class CSVUtil
+    {
+    public:
+        typedef std::vector< std::vector<std::string> > DataFrame;
 
-public:
-	CSVUtil() = delete;
+    public:
+        CSVUtil() = delete;
 
-	static bool ReadFile(const std::string& filepath, DataFrame& dataList);
-	static bool WriteFile(const std::string& filepath, const DataFrame& dataList);
+        static bool ReadFile(const std::string& filepath, DataFrame& dataList);
+        static bool WriteFile(const std::string& filepath, const DataFrame& dataList);
 
-public:
-	static const char g_token = ","[0];
-};
+    public:
+        static const char g_token = ","[0];
+    };
+}
